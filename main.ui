@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>語音辨識測試</string>
+   <string>語音辨識小程式</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPlainTextEdit" name="plainTextEdit">
@@ -28,6 +28,9 @@
       <width>250</width>
       <height>220</height>
      </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="plainTextEdit_2">
@@ -53,7 +56,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>你說的</string>
+     <string>你說的內容</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -228,11 +231,28 @@
      </property>
     </widget>
    </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>130</y>
+      <width>181</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+   </widget>
    <zorder>groupBox</zorder>
    <zorder>plainTextEdit</zorder>
    <zorder>plainTextEdit_2</zorder>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
+   <zorder>progressBar</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -248,8 +268,32 @@
      <string>About</string>
     </property>
     <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuLanguage">
+    <property name="title">
+     <string>Language</string>
+    </property>
+    <addaction name="actionMandarin"/>
+    <addaction name="actionEnglish"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuInput_Source">
+    <property name="title">
+     <string>Input Source</string>
+    </property>
+    <widget class="QMenu" name="menuAudio_File">
+     <property name="title">
+      <string>Audio File</string>
+     </property>
+     <addaction name="actionOpen"/>
+    </widget>
+    <addaction name="actionMicrophone"/>
+    <addaction name="menuAudio_File"/>
+    <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
+   <addaction name="menuInput_Source"/>
+   <addaction name="menuLanguage"/>
    <addaction name="menuTest"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -264,6 +308,47 @@
   <action name="actionExit">
    <property name="text">
     <string>離開</string>
+   </property>
+  </action>
+  <action name="actionMandarin">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>中文</string>
+   </property>
+   <property name="toolTip">
+    <string>中文</string>
+   </property>
+  </action>
+  <action name="actionEnglish">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>English</string>
+   </property>
+  </action>
+  <action name="actionMicrophone">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Microphone</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open....</string>
    </property>
   </action>
  </widget>
